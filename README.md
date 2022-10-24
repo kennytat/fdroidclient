@@ -6,9 +6,16 @@
 Client for [F-Droid](https://f-droid.org), the Free Software repository system
 for Android.
 
+## Replace app icon in
+    app/src/main/res
+    
+## Create new GPG keyring
+    rm gradle/verification-keyring.gpg
+    ./gradlew --write-verification-metadata pgp,sha256 --export-keys
+    
 ## Building with Gradle
 
-    ./gradlew assembleRelease
+    ./gradlew assembleRelease --warning-mode=all --stacktrace
 
 ## Direct download
 
