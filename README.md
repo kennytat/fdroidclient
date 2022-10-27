@@ -9,9 +9,14 @@ for Android.
 ## Git checkout verified commit
     git checkout <verified-commit-hash>
     
-## Replace app icon in
-    app/src/basic/res
-    app/src/main/res
+## Replace app icon
+    Generate new image asset in Android Studio
+    Replace icon in following folder: app/src/basic/res app/src/main/res
+    Or generate new image asset in Android Studio
+
+## Edit customized information
+    <string name="app_name">F-Droid</string>
+    default_repos.xml
     
 ## Create new GPG keyring
     rm gradle/verification-keyring.gpg
@@ -19,6 +24,9 @@ for Android.
     
 ## Building with Gradle or with Android Studio
     ./gradlew assembleRelease --warning-mode=all --stacktrace
+
+## Building with Android Studio (Recommended)
+    Create or use existing keystore for signing basic release version, some feature in debug or full version won't work
     
 ## Direct download
 
