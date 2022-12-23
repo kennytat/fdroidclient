@@ -345,7 +345,6 @@ public class RepoDetailsActivity extends AppCompatActivity {
         TextView usernameLabel = parent.findViewById(R.id.label_username);
         TextView username = parent.findViewById(R.id.text_username);
         Button changePassword = parent.findViewById(R.id.button_edit_credentials);
-        changePassword.setOnClickListener(this::showChangePasswordDialog);
 
         if (TextUtils.isEmpty(repo.username)) {
             usernameLabel.setVisibility(View.GONE);

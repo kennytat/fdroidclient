@@ -6,31 +6,13 @@
 Client for [F-Droid](https://f-droid.org), the Free Software repository system
 for Android.
 
-## Git checkout verified commit
-    git checkout <verified-commit-hash>
-    
-## Replace app icon
-    Generate new image asset in Android Studio
-    Replace icon in following folder: app/src/basic/res app/src/main/res
-    Or generate new image asset in Android Studio
+## Building with Gradle
 
-## Edit customized information
-    <string name="app_name">F-Droid</string>
-    default_repos.xml
-    
-## Create new GPG keyring
-    rm gradle/verification-keyring.gpg
-    ./gradlew --write-verification-metadata pgp,sha256 --export-keys
-    
-## Building with Gradle or with Android Studio
-    ./gradlew assembleRelease --warning-mode=all --stacktrace
+    ./gradlew assembleRelease
 
-## Building with Android Studio (Recommended)
-    Create or use existing keystore for signing basic release version, some feature in debug or full version won't work
-    
 ## Direct download
 
-You can [download the application](https://f-droid.org/F-Droid.apk) directly
+You can [download the application](https://f-droid.org/FDroid.apk) directly
 from our site or [browse it in the repo](https://f-droid.org/app/org.fdroid.fdroid).
 
 ## Libraries
@@ -38,7 +20,10 @@ from our site or [browse it in the repo](https://f-droid.org/app/org.fdroid.fdro
 Core F-Droid functionality is split into re-usable libraries
 to make using F-Droid technology in your own projects as easy as possible.
 
-[More information about libraries](libs/README.md)
+Note that all libraries are still in alpha stage.
+While they work, their public APIs are still subject to change.
+
+* [download](download) library for handling (multi-platform) HTTP download of repository indexes and APKs
 
 ## Contributing
 

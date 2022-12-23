@@ -10,9 +10,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import org.fdroid.fdroid.AppUpdateStatusManager;
 import org.fdroid.fdroid.Utils;
 import org.fdroid.fdroid.data.Schema.RepoTable;
@@ -21,6 +18,9 @@ import org.fdroid.fdroid.data.Schema.RepoTable.Cols;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class RepoProvider extends FDroidProvider {
 
@@ -492,7 +492,7 @@ public class RepoProvider extends FDroidProvider {
                     where, whereArgs, null, null, null);
             if (priorityCursor.getCount() > 0) {
                 priorityCursor.moveToFirst();
-                int oldPriority = priorityCursor.getInt(priorityCursor.getColumnIndexOrThrow(Cols.PRIORITY));
+                int oldPriority = priorityCursor.getInt(priorityCursor.getColumnIndex(Cols.PRIORITY));
                 priorityChanged = oldPriority != values.getAsInteger(Cols.PRIORITY);
             }
             priorityCursor.close();

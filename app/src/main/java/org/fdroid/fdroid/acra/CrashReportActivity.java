@@ -1,43 +1,26 @@
 package org.fdroid.fdroid.acra;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.EditText;
 
-import org.acra.dialog.CrashReportDialog;
-import org.acra.dialog.CrashReportDialogHelper;
+import org.acra.dialog.BaseCrashReportDialog;
 import org.fdroid.fdroid.R;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-public class CrashReportActivity extends CrashReportDialog
+public class CrashReportActivity extends BaseCrashReportDialog
         implements DialogInterface.OnDismissListener, DialogInterface.OnClickListener {
 
     private static final String STATE_COMMENT = "comment";
-    private CrashReportDialogHelper helper;
     private EditText comment;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        helper = new CrashReportDialogHelper(this, getIntent());
-        if (savedInstanceState != null) {
-            comment.setText(savedInstanceState.getString(STATE_COMMENT));
-        }
-    }
+    protected void init(Bundle savedInstanceState) {
+        super.init(savedInstanceState);
 
-    @Override
-    protected void setDialog(@NonNull android.app.AlertDialog alertDialog) {
-        super.setDialog(alertDialog);
-    }
-
-    @NonNull
-    @Override
-    protected android.app.AlertDialog getDialog() {
         final AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.crash_dialog_title)
                 .setView(R.layout.crash_report_dialog)
@@ -47,11 +30,13 @@ public class CrashReportActivity extends CrashReportDialog
 
         dialog.setCanceledOnTouchOutside(false);
         dialog.setOnDismissListener(this);
-        dialog.setOnShowListener(d -> {
-            TextInputLayout commentLayout = dialog.findViewById(android.R.id.input);
-            comment = commentLayout.getEditText();
-        });
-        return dialog;
+        dialog.show();
+
+        TextInputLayout commentLayout = dialog.findViewById(android.R.id.input);
+        comment = commentLayout.getEditText();
+        if (savedInstanceState != null) {
+            comment.setText(savedInstanceState.getString(STATE_COMMENT));
+        }
     }
 
     @Override
@@ -60,11 +45,11 @@ public class CrashReportActivity extends CrashReportDialog
     }
 
     @Override
-    public void onClick(@NonNull DialogInterface dialog, int which) {
+    public void onClick(DialogInterface dialog, int which) {
         if (which == DialogInterface.BUTTON_POSITIVE) {
-            helper.sendCrash(comment.getText().toString(), "");
+            sendCrash(comment.getText().toString(), "");
         } else {
-            helper.cancelReports();
+            cancelReports();
         }
         finish();
     }

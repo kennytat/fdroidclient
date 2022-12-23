@@ -45,7 +45,3 @@ public static final org.codehaus.jackson.annotate.JsonAutoDetect$Visibility *; }
 -keep class androidx.work.multiprocess.RemoteWorkManagerClient {
     public <init>(...);
 }
-
--keep class org.acra.config.MailSenderConfiguration {
-    public <init>(...);
-}

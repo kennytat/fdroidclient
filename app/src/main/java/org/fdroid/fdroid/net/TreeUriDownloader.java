@@ -15,7 +15,6 @@ import java.io.InputStream;
 import java.net.ProtocolException;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.documentfile.provider.DocumentFile;
 
 /**
@@ -95,14 +94,7 @@ public class TreeUriDownloader extends Downloader {
 
     @Override
     protected long totalDownloadSize() {
-        return getFileSize() != null ? getFileSize() : documentFile.length();
-    }
-
-    @Override
-    public void download(long totalSize, @Nullable String sha256) throws IOException, InterruptedException {
-        setFileSize(totalSize);
-        setSha256(sha256);
-        downloadFromStream(false);
+        return documentFile.length(); // TODO how should this actually be implemented?
     }
 
     @Override

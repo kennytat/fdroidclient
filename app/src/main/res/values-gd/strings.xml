@@ -529,7 +529,7 @@
     <string name="version">Tionndadh</string>
     <string name="installIncompatible">Chan eil an aplacaid co-chòrdail leis an uidheam agad, an stàlaich thu co-dhiù i\?</string>
     <string name="SignatureMismatch">Chaidh an tionndadh ùr a shoidhneadh le iuchair dhiofraichte on tionndadh roimhe. Airson an tionndadh ùr a stàladh, feumaidh tu an seann-tionndadh a thoirt air falbh an toiseach. Dèan seo is feuch ris a-rithist. (Thoir an aire gun suath an dì-stàladh bàn dàta inntearnail sam bith a chaidh a stòradh leis an aplacaid)</string>
-    <string name="app_name">F-Droid</string>
+    <string name="app_name">VGM Store</string>
     <string name="apps">Aplacaidean</string>
     <string name="swap_wifi_vpn_conflict">Tha còmhstri le VPN gnìomhach ann!</string>
     <string name="has_disallow_install_unknown_sources">Chan fhaod an cleachdaiche seo tùsan nach aithne dhuinn a chur ris, tha seo a’ gabhail a-staigh ionadan-tasgaidh ùra</string>

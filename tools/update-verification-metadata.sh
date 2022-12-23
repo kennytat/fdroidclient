@@ -8,7 +8,8 @@ cd "$TOOLS_DIR"/..
   assembleFullDebug \
   loadKtlintReporters \
   -x :app:test \
-  -x :app:lint
+  -x :app:lint \
+  -x :download:nativeTest
 
 printf "\nIf you changed dependencies related to tests, also add 'test' or 'connectedCheck'.\n\n"
 printf "\nPlease review the following diff:\n\n"

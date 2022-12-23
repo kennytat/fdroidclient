@@ -1,5 +1,2 @@
 include ':app'
-include ':libs:sharedTest'
-include ':libs:download'
-include ':libs:index'
-include ':libs:database'
+include ':download'

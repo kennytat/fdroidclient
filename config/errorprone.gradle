@@ -1,4 +1,3 @@
-import net.ltgt.gradle.errorprone.CheckSeverity
 
 buildscript {
     repositories {
@@ -7,31 +6,31 @@ buildscript {
         }
     }
     dependencies {
-        classpath "net.ltgt.gradle:gradle-errorprone-plugin:2.0.2"
+        classpath "net.ltgt.gradle:gradle-errorprone-plugin:0.0.16"
     }
 }
 
 apply plugin: "net.ltgt.errorprone"
 
-dependencies {
-    errorprone("com.google.errorprone:error_prone_core:2.12.1")
+tasks.withType(JavaCompile) {
+    options.compilerArgs += [
+        '-XepAllDisabledChecksAsWarnings',
+	'-XepExcludedPaths:.*/cc/mvdan/accesspoint/.*',
+        '-Xep:CatchFail:OFF',
+        '-Xep:ClassCanBeStatic:OFF',
+        '-Xep:DateFormatConstant:OFF',
+        '-Xep:DefaultCharset:OFF',
+        '-Xep:FormatString:OFF',
+        '-Xep:JavaLangClash:OFF',
+        '-Xep:MissingCasesInEnumSwitch:OFF',
+        '-Xep:MissingOverride:OFF',
+        '-Xep:NonAtomicVolatileUpdate:OFF',
+        '-Xep:OperatorPrecedence:OFF',
+        '-Xep:StringSplitter:OFF',
+        '-Xep:UnsynchronizedOverridesSynchronized:OFF',
+    ]
 }
 
-tasks.withType(JavaCompile).configureEach {
-    options.errorprone {
-        disableWarningsInGeneratedCode = true
-        excludedPaths = '.*/cc/mvdan/accesspoint/.*'
-        check("CatchFail", CheckSeverity.OFF)
-        check("ClassCanBeStatic", CheckSeverity.OFF)
-        check("DateFormatConstant", CheckSeverity.OFF)
-        check("DefaultCharset", CheckSeverity.OFF)
-        check("FormatString", CheckSeverity.OFF)
-        check("JavaLangClash", CheckSeverity.OFF)
-        check("MissingCasesInEnumSwitch", CheckSeverity.OFF)
-        check("MissingOverride", CheckSeverity.OFF)
-        check("NonAtomicVolatileUpdate", CheckSeverity.OFF)
-        check("OperatorPrecedence", CheckSeverity.OFF)
-        check("StringSplitter", CheckSeverity.OFF)
-        check("UnsynchronizedOverridesSynchronized", CheckSeverity.OFF)
-    }
+configurations.errorprone {
+    resolutionStrategy.force 'com.google.errorprone:error_prone_core:2.2.0'
 }

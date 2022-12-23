@@ -49,7 +49,7 @@
     <string name="crash_dialog_title">F-Droid क्रैश हो गया है</string>
     <string name="crash_dialog_text">एक अप्रत्याशित त्रुटि के कारण एप्लीकेशन बंद हो गयी है| क्या आप ईमेल पर डिटेलस भेज कर इस मुद्दे को सुलझाने में मदद करना चाहते हैं\?</string>
     <string name="crash_dialog_comment_prompt">आप अन्य जानकारी और टिप्पणियाँ यहाँ लिख सकते हैं:</string>
-    <string name="app_name">F-Droid</string>
+    <string name="app_name">VGM Store</string>
     <string name="installIncompatible">यह ऐप्लिकेशन आपके डिवाइस के लिए अनुकुल नहीं है, क्या आप इसे फिर भी स्थापित करना चाहते हैं\?</string>
     <string name="interval_1w">साप्ताहिक अपडेट के लिए जाँच करें</string>
     <string name="interval_2w">हर 2 सप्ताह में अपडेट की जाँच करें</string>

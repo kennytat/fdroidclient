@@ -79,9 +79,14 @@ public class RepoProviderTest extends FDroidProviderTest {
         gpRepo = setEnabled(gpRepo, true);
         assertEquals(2, RepoProvider.Helper.countEnabledRepos(context));
 
+				Repo vgmRepo = RepoProvider.Helper.findByAddress(context, "https://repos.hjm.bid/repo");
+        vgmRepo = setEnabled(vgmRepo, true);
+        assertEquals(2, RepoProvider.Helper.countEnabledRepos(context));
+
         Repo fdroidRepo = RepoProvider.Helper.findByAddress(context, "https://f-droid.org/repo");
         setEnabled(fdroidRepo, false);
         setEnabled(gpRepo, false);
+				// setEnabled(vgmRepo, false);
 
         assertEquals(0, RepoProvider.Helper.countEnabledRepos(context));
     }

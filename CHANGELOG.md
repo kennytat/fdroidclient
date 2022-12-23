@@ -1,3 +1,19 @@
+### 1.15.3 (2022-10-25)
+
+* Handle API 33 split-permissions
+
+* Fix crash when loading icons for apps without repo
+
+* Allow nearby swap using modern index formats.
+
+### 1.15.2 (2022-05-18)
+
+* Re-enable HTTP for nearby swapping, fixing #2402
+
+### 1.15.1 (2022-05-11)
+
+* Revert to commons-io v2.6, fixing #2406
+
 ### 1.15 (2022-05-03)
 
 * Set navigation bar color to black in dark theme (@ConnyDuck)

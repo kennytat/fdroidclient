@@ -407,11 +407,6 @@ public class FDroidMetricsWorker extends Worker {
                     TextUtils.equals(action, that.action) &&
                     TextUtils.equals(name, that.name);
         }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(category, action, name, period_start, period_end, times, value);
-        }
     }
 
     /**
